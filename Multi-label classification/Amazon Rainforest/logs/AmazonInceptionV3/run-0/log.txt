@@ -1,0 +1,464 @@
+Namespace(batch_size=8, cuda=True, epochs=20, gamma=2, gpu='0', input_size=256, log_interval=10, lr=0.001, model='AmazonInceptionV3', momentum=0.5, nir_channel='normal', no_cuda=False, patience=20, resume='', save='model.pt', seed=1, start_epoch=0, test_batch_size=128, v=False)
+AmazonInceptionV3(
+  (pretrained_model): Inception3(
+    (Conv2d_1a_3x3): BasicConv2d(
+      (conv): Conv2d(3, 32, kernel_size=(3, 3), stride=(2, 2), bias=False)
+      (bn): BatchNorm2d(32, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (Conv2d_2a_3x3): BasicConv2d(
+      (conv): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(32, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (Conv2d_2b_3x3): BasicConv2d(
+      (conv): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (Conv2d_3b_1x1): BasicConv2d(
+      (conv): Conv2d(64, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(80, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (Conv2d_4a_3x3): BasicConv2d(
+      (conv): Conv2d(80, 192, kernel_size=(3, 3), stride=(1, 1), bias=False)
+      (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (Mixed_5b): InceptionA(
+      (branch1x1): BasicConv2d(
+        (conv): Conv2d(192, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch5x5_1): BasicConv2d(
+        (conv): Conv2d(192, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch5x5_2): BasicConv2d(
+        (conv): Conv2d(48, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3dbl_1): BasicConv2d(
+        (conv): Conv2d(192, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3dbl_2): BasicConv2d(
+        (conv): Conv2d(64, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3dbl_3): BasicConv2d(
+        (conv): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch_pool): BasicConv2d(
+        (conv): Conv2d(192, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(32, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (Mixed_5c): InceptionA(
+      (branch1x1): BasicConv2d(
+        (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch5x5_1): BasicConv2d(
+        (conv): Conv2d(256, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch5x5_2): BasicConv2d(
+        (conv): Conv2d(48, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3dbl_1): BasicConv2d(
+        (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3dbl_2): BasicConv2d(
+        (conv): Conv2d(64, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3dbl_3): BasicConv2d(
+        (conv): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch_pool): BasicConv2d(
+        (conv): Conv2d(256, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (Mixed_5d): InceptionA(
+      (branch1x1): BasicConv2d(
+        (conv): Conv2d(288, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch5x5_1): BasicConv2d(
+        (conv): Conv2d(288, 48, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(48, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch5x5_2): BasicConv2d(
+        (conv): Conv2d(48, 64, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3dbl_1): BasicConv2d(
+        (conv): Conv2d(288, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3dbl_2): BasicConv2d(
+        (conv): Conv2d(64, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3dbl_3): BasicConv2d(
+        (conv): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch_pool): BasicConv2d(
+        (conv): Conv2d(288, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (Mixed_6a): InceptionB(
+      (branch3x3): BasicConv2d(
+        (conv): Conv2d(288, 384, kernel_size=(3, 3), stride=(2, 2), bias=False)
+        (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3dbl_1): BasicConv2d(
+        (conv): Conv2d(288, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(64, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3dbl_2): BasicConv2d(
+        (conv): Conv2d(64, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3dbl_3): BasicConv2d(
+        (conv): Conv2d(96, 96, kernel_size=(3, 3), stride=(2, 2), bias=False)
+        (bn): BatchNorm2d(96, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (Mixed_6b): InceptionC(
+      (branch1x1): BasicConv2d(
+        (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7_1): BasicConv2d(
+        (conv): Conv2d(768, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7_2): BasicConv2d(
+        (conv): Conv2d(128, 128, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7_3): BasicConv2d(
+        (conv): Conv2d(128, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7dbl_1): BasicConv2d(
+        (conv): Conv2d(768, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7dbl_2): BasicConv2d(
+        (conv): Conv2d(128, 128, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7dbl_3): BasicConv2d(
+        (conv): Conv2d(128, 128, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7dbl_4): BasicConv2d(
+        (conv): Conv2d(128, 128, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+        (bn): BatchNorm2d(128, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7dbl_5): BasicConv2d(
+        (conv): Conv2d(128, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch_pool): BasicConv2d(
+        (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (Mixed_6c): InceptionC(
+      (branch1x1): BasicConv2d(
+        (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7_1): BasicConv2d(
+        (conv): Conv2d(768, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7_2): BasicConv2d(
+        (conv): Conv2d(160, 160, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+        (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7_3): BasicConv2d(
+        (conv): Conv2d(160, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7dbl_1): BasicConv2d(
+        (conv): Conv2d(768, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7dbl_2): BasicConv2d(
+        (conv): Conv2d(160, 160, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+        (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7dbl_3): BasicConv2d(
+        (conv): Conv2d(160, 160, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+        (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7dbl_4): BasicConv2d(
+        (conv): Conv2d(160, 160, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+        (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7dbl_5): BasicConv2d(
+        (conv): Conv2d(160, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch_pool): BasicConv2d(
+        (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (Mixed_6d): InceptionC(
+      (branch1x1): BasicConv2d(
+        (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7_1): BasicConv2d(
+        (conv): Conv2d(768, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7_2): BasicConv2d(
+        (conv): Conv2d(160, 160, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+        (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7_3): BasicConv2d(
+        (conv): Conv2d(160, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7dbl_1): BasicConv2d(
+        (conv): Conv2d(768, 160, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7dbl_2): BasicConv2d(
+        (conv): Conv2d(160, 160, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+        (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7dbl_3): BasicConv2d(
+        (conv): Conv2d(160, 160, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+        (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7dbl_4): BasicConv2d(
+        (conv): Conv2d(160, 160, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+        (bn): BatchNorm2d(160, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7dbl_5): BasicConv2d(
+        (conv): Conv2d(160, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch_pool): BasicConv2d(
+        (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (Mixed_6e): InceptionC(
+      (branch1x1): BasicConv2d(
+        (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7_1): BasicConv2d(
+        (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7_2): BasicConv2d(
+        (conv): Conv2d(192, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7_3): BasicConv2d(
+        (conv): Conv2d(192, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7dbl_1): BasicConv2d(
+        (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7dbl_2): BasicConv2d(
+        (conv): Conv2d(192, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7dbl_3): BasicConv2d(
+        (conv): Conv2d(192, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7dbl_4): BasicConv2d(
+        (conv): Conv2d(192, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7dbl_5): BasicConv2d(
+        (conv): Conv2d(192, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch_pool): BasicConv2d(
+        (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (Mixed_7a): InceptionD(
+      (branch3x3_1): BasicConv2d(
+        (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3_2): BasicConv2d(
+        (conv): Conv2d(192, 320, kernel_size=(3, 3), stride=(2, 2), bias=False)
+        (bn): BatchNorm2d(320, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7x3_1): BasicConv2d(
+        (conv): Conv2d(768, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7x3_2): BasicConv2d(
+        (conv): Conv2d(192, 192, kernel_size=(1, 7), stride=(1, 1), padding=(0, 3), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7x3_3): BasicConv2d(
+        (conv): Conv2d(192, 192, kernel_size=(7, 1), stride=(1, 1), padding=(3, 0), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch7x7x3_4): BasicConv2d(
+        (conv): Conv2d(192, 192, kernel_size=(3, 3), stride=(2, 2), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (Mixed_7b): InceptionE(
+      (branch1x1): BasicConv2d(
+        (conv): Conv2d(1280, 320, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(320, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3_1): BasicConv2d(
+        (conv): Conv2d(1280, 384, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3_2a): BasicConv2d(
+        (conv): Conv2d(384, 384, kernel_size=(1, 3), stride=(1, 1), padding=(0, 1), bias=False)
+        (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3_2b): BasicConv2d(
+        (conv): Conv2d(384, 384, kernel_size=(3, 1), stride=(1, 1), padding=(1, 0), bias=False)
+        (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3dbl_1): BasicConv2d(
+        (conv): Conv2d(1280, 448, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(448, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3dbl_2): BasicConv2d(
+        (conv): Conv2d(448, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3dbl_3a): BasicConv2d(
+        (conv): Conv2d(384, 384, kernel_size=(1, 3), stride=(1, 1), padding=(0, 1), bias=False)
+        (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3dbl_3b): BasicConv2d(
+        (conv): Conv2d(384, 384, kernel_size=(3, 1), stride=(1, 1), padding=(1, 0), bias=False)
+        (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch_pool): BasicConv2d(
+        (conv): Conv2d(1280, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (Mixed_7c): InceptionE(
+      (branch1x1): BasicConv2d(
+        (conv): Conv2d(2048, 320, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(320, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3_1): BasicConv2d(
+        (conv): Conv2d(2048, 384, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3_2a): BasicConv2d(
+        (conv): Conv2d(384, 384, kernel_size=(1, 3), stride=(1, 1), padding=(0, 1), bias=False)
+        (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3_2b): BasicConv2d(
+        (conv): Conv2d(384, 384, kernel_size=(3, 1), stride=(1, 1), padding=(1, 0), bias=False)
+        (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3dbl_1): BasicConv2d(
+        (conv): Conv2d(2048, 448, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(448, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3dbl_2): BasicConv2d(
+        (conv): Conv2d(448, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3dbl_3a): BasicConv2d(
+        (conv): Conv2d(384, 384, kernel_size=(1, 3), stride=(1, 1), padding=(0, 1), bias=False)
+        (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch3x3dbl_3b): BasicConv2d(
+        (conv): Conv2d(384, 384, kernel_size=(3, 1), stride=(1, 1), padding=(1, 0), bias=False)
+        (bn): BatchNorm2d(384, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (branch_pool): BasicConv2d(
+        (conv): Conv2d(2048, 192, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        (bn): BatchNorm2d(192, eps=0.001, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (fc): Linear(in_features=2048, out_features=17, bias=True)
+  )
+)
+Epoch: 0	 train loss: 0.178, train acc: 0.932	
+                val loss: 0.117, val acc: 0.957	 fscore: 0.892	
+                time: 376.8s
+Epoch: 1	 train loss: 0.130, train acc: 0.952	
+                val loss: 0.106, val acc: 0.961	 fscore: 0.908	
+                time: 374.9s
+Epoch: 2	 train loss: 0.118, train acc: 0.956	
+                val loss: 0.096, val acc: 0.964	 fscore: 0.916	
+                time: 374.8s
+Epoch: 3	 train loss: 0.110, train acc: 0.959	
+                val loss: 0.091, val acc: 0.966	 fscore: 0.921	
+                time: 370.4s
+Epoch: 4	 train loss: 0.104, train acc: 0.961	
+                val loss: 0.086, val acc: 0.967	 fscore: 0.926	
+                time: 373.9s
+Epoch: 5	 train loss: 0.100, train acc: 0.963	
+                val loss: 0.082, val acc: 0.969	 fscore: 0.928	
+                time: 375.4s
+Epoch: 6	 train loss: 0.095, train acc: 0.965	
+                val loss: 0.079, val acc: 0.970	 fscore: 0.932	
+                time: 376.3s
+Epoch: 7	 train loss: 0.092, train acc: 0.966	
+                val loss: 0.078, val acc: 0.970	 fscore: 0.932	
+                time: 380.3s
+Epoch: 8	 train loss: 0.088, train acc: 0.967	
+                val loss: 0.072, val acc: 0.973	 fscore: 0.938	
+                time: 378.4s
+Epoch: 9	 train loss: 0.085, train acc: 0.968	
+                val loss: 0.069, val acc: 0.974	 fscore: 0.937	
+                time: 376.4s
+Epoch: 10	 train loss: 0.082, train acc: 0.969	
+                val loss: 0.064, val acc: 0.976	 fscore: 0.946	
+                time: 369.6s
+Epoch: 11	 train loss: 0.079, train acc: 0.971	
+                val loss: 0.063, val acc: 0.976	 fscore: 0.944	
+                time: 373.2s
+Epoch: 12	 train loss: 0.075, train acc: 0.972	
+                val loss: 0.057, val acc: 0.978	 fscore: 0.951	
+                time: 374.4s
+Epoch: 13	 train loss: 0.071, train acc: 0.973	
+                val loss: 0.054, val acc: 0.980	 fscore: 0.955	
+                time: 362.4s
+Epoch: 14	 train loss: 0.069, train acc: 0.974	
+                val loss: 0.050, val acc: 0.982	 fscore: 0.958	
+                time: 378.4s
+Epoch: 15	 train loss: 0.065, train acc: 0.976	
+                val loss: 0.048, val acc: 0.982	 fscore: 0.960	
+                time: 376.8s
+Epoch: 16	 train loss: 0.061, train acc: 0.977	
+                val loss: 0.049, val acc: 0.982	 fscore: 0.957	
+                time: 379.2s
+Epoch: 17	 train loss: 0.059, train acc: 0.978	
+                val loss: 0.039, val acc: 0.986	 fscore: 0.968	
+                time: 377.7s
+Epoch: 18	 train loss: 0.055, train acc: 0.979	
+                val loss: 0.039, val acc: 0.986	 fscore: 0.967	
+                time: 373.2s
+Epoch: 19	 train loss: 0.052, train acc: 0.981	
+                val loss: 0.034, val acc: 0.988	 fscore: 0.972	
+                time: 375.5s
